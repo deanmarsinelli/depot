@@ -101,7 +101,7 @@ public class LevelController : MonoBehaviour
                 level3Time = currTime;
                 winText.text = "Level 1 Time: " + level1Time.ToString() + "\nLevel 2 Time: " + level2Time.ToString() + "\nLevel 3 Time: " + level3Time.ToString();
                 Debug.Log("Attempting Upload...");
-                var url = "http://deanmarsinelli.com/games/RollingBall/highscores.php";
+                var url = "http://deanmarsinelli.com/projects/games/RollingBall/highscores.php";
                 var form = new WWWForm();
                 form.AddField("level1", level1Time.ToString());
                 form.AddField("level2", level2Time.ToString());

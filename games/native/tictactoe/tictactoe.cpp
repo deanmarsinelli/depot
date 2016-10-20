@@ -118,7 +118,7 @@ int main()
         // 1) draw the board
         DrawBoard(board);
 
-        // 2) players turn
+        // 2) player's turn
         PlayerMove(currentPlayer, board);
 
         // 3) draw board again

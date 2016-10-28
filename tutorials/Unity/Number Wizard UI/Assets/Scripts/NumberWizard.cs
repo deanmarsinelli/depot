@@ -7,7 +7,7 @@ public class NumberWizard : MonoBehaviour
 	int max;
 	int min;
 	int guess;
-	int maxGuessesAllowed = 6;
+	int maxGuessesAllowed = 8;
 	public Text guessText;
 	public LevelManager levelManager;
 	
@@ -21,10 +21,7 @@ public class NumberWizard : MonoBehaviour
 	{
 		max = 1000;
 		min = 1;
-		guess = 500;
-		max = max + 1; // to fix rounding issues
-		
-		guessText.text = "Is the number higher or lower than " + guess + "?";
+		GuessNumber();
 	}
 
 	public void GuessHigher()
@@ -41,7 +38,6 @@ public class NumberWizard : MonoBehaviour
 	
 	void NextGuess()
 	{
-		guess = (max + min) / 2;
 		maxGuessesAllowed -= 1;
 		if (maxGuessesAllowed <= 0)
 		{
@@ -50,7 +46,13 @@ public class NumberWizard : MonoBehaviour
 		}
 		else
 		{
-			guessText.text = "Is the number higher or lower than " + guess + "?";
+			GuessNumber();
 		}
+	}
+	
+	void GuessNumber()
+	{
+		guess = Random.Range(min, max + 1);
+		guessText.text = "Is the number higher or lower than " + guess + "?";
 	}
 }

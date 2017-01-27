@@ -1,0 +1,23 @@
+coordinates
+===================
+same as OpenGL - right handed system, +Z is out of the screen, -Z is into the screen
+
+vertex shader
+===================
+gl_Position = output position of the vertex (REQUIRED), vec4
+gl_PointSize = size of a vertex point (not needed)
+
+
+2 ways to pass data to a vertex shader: attribute variables and uniform variables
+
+1) attribute variable: hold data that DIFFERS per vertex
+    - can hold vertex position (different for every vertex)
+    - e.g.      attribute      vec4   a_Position
+            (storage qualifer)(type)(variable name)
+
+2) uniform variable: hold data that is the SAME for each vertex
+
+
+fragment shader
+===================
+gl_FragColor - final pixel color (REQUIRED), vec4

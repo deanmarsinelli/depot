@@ -23,6 +23,24 @@ function InitGL(canvas) {
 }
 
 
+// load a vertex shader from a file
+// gl = webgl context
+// name = name of the shader source file
+// return compiled shader
+function LoadVertexShader(gl, name) {
+    return LoadShader(gl, gl.VERTEX_SHADER, name);
+}
+
+
+// load a fragment shader from a file
+// gl = webgl context
+// name = name of the shader source file
+// return compiled shader
+function LoadFragmentShader(gl, name) {
+    return LoadShader(gl, gl.FRAGMENT_SHADER, name);
+}
+
+
 // load a shader from a file
 // gl = webgl context
 // type = vertex or fragment shader
@@ -71,17 +89,15 @@ function LoadShader(gl, type, name) {
 }
 
 
-// create a linked program object (vertex + pixel shader)
+// create a linked program object (vertex + fragment shader)
 // gl = webgl context
-// vertexShader = name of the vertex shader
-// fragmentShader = name of the fragment shader
+// vertexShader = a compiled vertex shader
+// fragmentShader = a compiled fragment shader
 // return a webgl program
 function CreateProgram(gl, vertexShader, fragmentShader) {
 
-    // create shader objects
-    var vShader = LoadShader(gl, gl.VERTEX_SHADER, vertexShader);
-    var fShader = LoadShader(gl, gl.FRAGMENT_SHADER, fragmentShader);
-    if (!vShader || !fShader) {
+    if (!vertexShader || !fragmentShader) {
+        console.log('Pass in a null shader');
         return null;
     }
 
@@ -93,8 +109,8 @@ function CreateProgram(gl, vertexShader, fragmentShader) {
     }
 
     // attach shaders to the program and link the program
-    gl.attachShader(program, vShader);
-    gl.attachShader(program, fShader);
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
     gl.linkProgram(program);
 
     // ensure the linking was successful
@@ -103,10 +119,11 @@ function CreateProgram(gl, vertexShader, fragmentShader) {
         var error = gl.getProgramInfoLog(program);
         console.log('Failed to link program: ' + error);
         gl.deleteProgram(program);
-        gl.deleteShader(fShader);
-        gl.deleteShader(vShader);
         return null;
     }
+
+            // bind shaders to the pipeline
+    gl.useProgram(program);
 
     return program;
 }

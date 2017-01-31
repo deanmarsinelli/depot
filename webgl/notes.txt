@@ -15,8 +15,12 @@ gl_PointSize = size of a vertex point (not needed)
     - e.g.      attribute      vec4   a_Position
             (storage qualifer)(type)(variable name)
 
-2) uniform variable: hold data that is the SAME for each vertex
+    - only available in vertex shader
 
+
+2) uniform variable: hold data that is the SAME for each vertex
+    - all shaders linked in a gl program use the same set of uniforms
+    - 2 uniform variables with the same name in 2 different shaders linked into a program are technically the same location so they must have the same type. changing one will change the variable in both shaders
 
 fragment shader
 ===================

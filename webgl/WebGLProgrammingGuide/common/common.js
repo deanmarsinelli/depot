@@ -57,7 +57,7 @@ function LoadShader(gl, type, name) {
     }
     var filePath = dir + 'shaders/' + name + extension;
     var request = new XMLHttpRequest();
-    request.open("GET", filePath, false);
+    request.open('GET', filePath, false);
     request.send();
     var source = request.responseText;
     if (!source) {
@@ -122,7 +122,7 @@ function CreateProgram(gl, vertexShader, fragmentShader) {
         return null;
     }
 
-            // bind shaders to the pipeline
+    // bind shaders to the pipeline
     gl.useProgram(program);
 
     return program;

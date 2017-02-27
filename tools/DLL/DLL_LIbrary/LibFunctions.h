@@ -6,8 +6,8 @@
 // 1) __declspec(dllexport) is not required for the function definition (in the .cpp file)
 // 2) DLLMain is optional, and if present it will be called once when the DLL is loaded and once when it is unloaded
 // 3) DLLMain does not have to be exported. it is called when the library is loaded implicitly by a process that includes the dll, or loaded explicitly through LoadLibrary()
-// 4) functions that are declared __stdcall or __cdecl should have the matching function pointer signature in the client application when using GetProcAddress()
-// 5) if using GetProcAddress, definitly export the functions using extern "C" so the names don't get mangled and they are easy to import
+// 4) functions that are declared __stdcall or __cdecl should have the matching calling convention in the function pointer signature in the client application when using GetProcAddress()
+// 5) if using GetProcAddress, definitely export the functions using extern "C" so the names don't get mangled and they are easy to import
 // 6) client applications using LoadLibrary will first check for the dll in the same directory as the executable then the system directory 
 //    see: https://msdn.microsoft.com/en-us/library/windows/desktop/ms682586(v=vs.85).aspx#search_order_for_desktop_applications
 //    when running the application through the debugger in visual studio, the dll can live in the same directory as the project, but if a dll with the same name ALSO 

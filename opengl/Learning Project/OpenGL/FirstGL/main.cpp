@@ -1,9 +1,9 @@
 // GLEW
 #define GLEW_STATIC
-#include <GL\glew.h>
+#include <GL/glew.h>
 
 // GLFW
-#include <GLFW3\glfw3.h>
+#include <GLFW/glfw3.h>
 
 // callbacks
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);

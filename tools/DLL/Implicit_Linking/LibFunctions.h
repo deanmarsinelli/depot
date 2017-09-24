@@ -13,8 +13,10 @@
 //    when running the application through the debugger in visual studio, the dll can live in the same directory as the project, but if a dll with the same name ALSO 
 //    lives next to the .exe, the dll in the same directory as the .exe will be loaded
 //
+// (7) when using implicit linking, prefixing the dll functions with __declspec(dllimport) will generate better code by the compiler
+//     see: https://msdn.microsoft.com/en-us/library/aa271769(v=vs.60).aspx
 
-#define DLLExport __declspec(dllexport)
+#define DLLExport __declspec(dllimport)
 
 #define PUBLIC_FUNCTION(rval)   DLLExport rval CDECL
 

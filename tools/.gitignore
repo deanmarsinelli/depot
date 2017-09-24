@@ -11,8 +11,13 @@
 *.userprefs
 
 # Build results
+[Dd]ebug/
 [Dd]ebugPublic/
+[Rr]release/
 [Rr]eleases/
+x86/
+x64/
+Win32/
 bin/
 build/
 Intermediate/

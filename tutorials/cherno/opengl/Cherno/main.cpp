@@ -1,5 +1,16 @@
 #include <GLFW/glfw3.h>
 
+// change this to a 1 to remove the console window from appearing
+#define REMOVE_CONSOLE 0
+
+
+#ifdef _WIN32
+#if REMOVE_CONSOLE
+	#pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
+#endif
+#endif
+
+
 int main(void)
 {
 	GLFWwindow* window;

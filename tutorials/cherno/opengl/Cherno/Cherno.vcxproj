@@ -102,6 +102,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)3rdParty\GL\lib\$(Platform);$(SolutionDir)3rdParty\GLFW\lib\$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>LIBCMT</IgnoreSpecificDefaultLibraries>
+      <SubSystem>NotSet</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
